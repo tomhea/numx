@@ -13,7 +13,7 @@ readme = "README.md"
 
 repository = "https://github.com/tomhea/numx"
 
-keywords = ["math", "primes"]
+keywords = ["math", "primes", "fast", "cli"]
 classifiers = [
     "Topic :: Scientific/Engineering :: Mathematics",
     "Operating System :: OS Independent",

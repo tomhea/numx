@@ -5,13 +5,16 @@
 [![PyPI - Version](https://img.shields.io/pypi/v/numx)](https://pypi.org/project/numx/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/numx)](https://pypi.org/project/numx/)
 
-Import numbers.
+Just Import Numbers.
 
 ```python
 >> from numx import p25  # The 25th prime
 >> print(p25)
 97
 ```
+
+This library allows importing useful numbers, as the Nth prime, prime lists, random numbers, fibonacci, e, pi, ...  
+The library is [thoroughly tested](#how-to-test), and uses [sympy](https://pypi.org/project/sympy/) as its computational mind.
 
 ### How to Download
 ```
@@ -40,3 +43,11 @@ An import can fail only when importing a variable written in a bad format (e.g. 
 When it fails, numx will raise the numx.__NumXError exception, which inherits from ValueError.
 
 numx.__Float is sympy.Float, which supports the str() and float() functions.
+
+### How to Test
+
+The library is thoroughly tested. If you want to run the test, just run:
+```
+>> git clone https://github.com/tomhea/numx.git
+>> pytest numx
+```
