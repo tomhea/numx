@@ -20,6 +20,9 @@ pip install numx
 
 # Supported Number Types
 - `pN`  - the Nth prime.
+- `PN`  - count the primes upto N.
+- `plN` - list of the first N primes.
+- `PLN` - list of primes upto N.
 - `nN`  - the number N.
 - `rN`  - random integer in range [0, N].
 - `piN` - pi with N digits after the point precision.

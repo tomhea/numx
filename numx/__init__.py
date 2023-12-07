@@ -5,7 +5,10 @@ from numx import n300  # == 300
 
 # Supported Number Types
 - `pN`  - the Nth prime.
-- `nN`  - the number N.ex
+- `PN`  - count the primes upto N.
+- `plN` - list of the first N primes.
+- `PLN` - list of primes upto N.
+- `nN`  - the number N.
 - `rN`  - random integer in range [0, N].
 - `piN` - pi with N digits after the point precision.
 - `eN`  - e with N digits after the point precision.

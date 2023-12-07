@@ -1,6 +1,7 @@
 import random
+from typing import List
 
-from sympy import N, Float, prime, pi, E
+from sympy import N, Float, prime, sieve, primepi, pi, E
 
 from numx._exceptions import NumXError, NuxXNotImplementedError
 
@@ -27,16 +28,18 @@ def e_nth_point(number: int) -> Float:
     return N(E, number + 1)
 
 
-def first_n_primes(number: int) -> int:
-    raise NuxXNotImplementedError("The function 'first_n_primes()' is not implemented yet.")
+def first_n_primes(number: int) -> List[int]:
+    if number == 0:
+        return []
+    return primes_upto_n(calc_nth_prime(number))
 
 
 def num_of_primes_upto(number: int) -> int:
-    raise NuxXNotImplementedError("The function 'num_of_primes_upto()' is not implemented yet.")
+    return int(primepi(number))
 
 
-def primes_upto_n(number: int) -> int:
-    raise NuxXNotImplementedError("The function 'primes_upto_n()' is not implemented yet.")
+def primes_upto_n(number: int) -> List[int]:
+    return list(sieve.primerange(number + 1))
 
 
 def euler_totient(number: int) -> int:

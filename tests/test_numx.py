@@ -1,4 +1,6 @@
 import pytest
+import sympy
+
 import numx
 from numx import __NumXError as NumXError
 from sympy import pi, E, N, Float
@@ -44,6 +46,39 @@ def test_pi():
 
 def test_e():
     _assert_math_constant(E, 'e', 1000)
+
+
+def test_primes_upto_n():
+    primes = list(sympy.sieve.primerange(1000))
+    assert numx.PL0 == []
+    assert numx.PL1 == []
+    assert numx.PL2 == [2]
+    assert numx.PL3 == [2, 3]
+    assert numx.PL8 == [p for p in primes if p <= 8]
+    assert numx.PL97 == [p for p in primes if p <= 97]
+    assert numx.PL200 == [p for p in primes if p <= 200]
+
+
+def test_num_of_primes_upto():
+    primes = list(sympy.sieve.primerange(1000))
+    assert numx.P0 == len([])
+    assert numx.P1 == len([])
+    assert numx.P2 == len([2])
+    assert numx.P3 == len([2, 3])
+    assert numx.P8 == len([p for p in primes if p <= 8])
+    assert numx.P97 == len([p for p in primes if p <= 97])
+    assert numx.P200 == len([p for p in primes if p <= 200])
+
+
+def test_first_n_primes():
+    primes = list(sympy.sieve.primerange(2000))
+    assert numx.pl0 == primes[:0]
+    assert numx.pl1 == primes[:1]
+    assert numx.pl2 == primes[:2]
+    assert numx.pl3 == primes[:3]
+    assert numx.pl8 == primes[:8]
+    assert numx.pl97 == primes[:97]
+    assert numx.pl200 == primes[:200]
 
 
 def test_n_all_number_variations():
