@@ -8,13 +8,13 @@ from numx._exceptions import NumXError
 
 FUNCTION_BY_PREFIX = {
     'p': calc_nth_prime,
+    'pl': first_n_primes,
+    'P': num_of_primes_upto,
+    'PL': primes_upto_n,
     'n': return_same,
     'r': random_number,
     'pi': py_nth_point,
     'e': e_nth_point,
-    'pl': first_n_primes,
-    'P': num_of_primes_upto,
-    'PL': primes_upto_n,
     't': euler_totient,
     'fa': factorial,
     'fi': fibonacci,
