@@ -1,6 +1,8 @@
-import sympy
+import random
 
-from numx._exceptions import NumXError
+from sympy import N, Float, prime, pi, E
+
+from numx._exceptions import NumXError, NuxXNotImplementedError
 
 
 def return_same(number: int) -> int:
@@ -10,4 +12,40 @@ def return_same(number: int) -> int:
 def calc_nth_prime(number: int) -> int:
     if number <= 0:
         raise NumXError("The prime number index must be positive")
-    return sympy.prime(number)
+    return prime(number)
+
+
+def random_number(number: int) -> int:
+    return random.randint(0, number)
+
+
+def py_nth_point(number: int) -> Float:
+    return N(pi, number + 1)
+
+
+def e_nth_point(number: int) -> Float:
+    return N(E, number + 1)
+
+
+def first_n_primes(number: int) -> int:
+    raise NuxXNotImplementedError("The function 'first_n_primes()' is not implemented yet.")
+
+
+def num_of_primes_upto(number: int) -> int:
+    raise NuxXNotImplementedError("The function 'num_of_primes_upto()' is not implemented yet.")
+
+
+def primes_upto_n(number: int) -> int:
+    raise NuxXNotImplementedError("The function 'primes_upto_n()' is not implemented yet.")
+
+
+def euler_totient(number: int) -> int:
+    raise NuxXNotImplementedError("The function 'euler_totient()' is not implemented yet.")
+
+
+def factorial(number: int) -> int:
+    raise NuxXNotImplementedError("The function 'factorial()' is not implemented yet.")
+
+
+def fibonacci(number: int) -> int:
+    raise NuxXNotImplementedError("The function 'fibonacci()' is not implemented yet.")

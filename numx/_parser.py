@@ -1,13 +1,23 @@
 import re
 from typing import Tuple, Optional
 
-from numx._actual_math import calc_nth_prime, return_same
+from numx._actual_math import calc_nth_prime, return_same, random_number, py_nth_point, e_nth_point, first_n_primes, \
+    num_of_primes_upto, primes_upto_n, euler_totient, factorial, fibonacci
 from numx._exceptions import NumXError
 
 
 FUNCTION_BY_PREFIX = {
     'p': calc_nth_prime,
     'n': return_same,
+    'r': random_number,
+    'pi': py_nth_point,
+    'e': e_nth_point,
+    'pl': first_n_primes,
+    'P': num_of_primes_upto,
+    'PL': primes_upto_n,
+    't': euler_totient,
+    'fa': factorial,
+    'fi': fibonacci,
 }
 
 

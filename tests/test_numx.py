@@ -1,6 +1,7 @@
 import pytest
 import numx
-from numx._exceptions import NumXError
+from numx import __NumXError as NumXError
+from sympy import pi, E, N, Float
 
 
 def test_p():
@@ -12,6 +13,37 @@ def test_p():
 def test_n():
     assert numx.n25 == 25
     assert numx.n0 == 0
+
+
+def test_r():
+    r1e6_max = 1_000_000
+    length = 100_000
+
+    sum_r = 0
+    for _ in range(length):
+        value = numx.r1e6
+        assert 0 <= value <= r1e6_max
+        sum_r += value
+
+    assert 0.4 * r1e6_max < sum_r // length < 0.6 * r1e6_max
+
+
+def _assert_math_constant(number: Float, number_type_string: str, test_length: int):
+    diffs = []
+    for i in range(test_length):
+        num_digit_i = numx.__getattr__(f'{number_type_string}{i}')
+        assert len(str(num_digit_i)) == i + 2
+        diffs.append(abs(N(number - num_digit_i)))
+
+    assert sorted(diffs, reverse=True) == diffs
+
+
+def test_pi():
+    _assert_math_constant(pi, 'pi', 1000)
+
+
+def test_e():
+    _assert_math_constant(E, 'e', 1000)
 
 
 def test_n_all_number_variations():
@@ -82,4 +114,4 @@ def test_help_works():
 def test_inner_fails():
     with pytest.raises(AttributeError):
         numx.__all__
-    assert numx.__doc__
+    assert 'Supported Number Types' in numx.__doc__
